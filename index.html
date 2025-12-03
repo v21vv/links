@@ -235,83 +235,6 @@
             font-weight: 600;
         }
 
-        /* حقوق النشر والمصمم */
-        .copyright-section {
-            background-color: var(--uae-black);
-            color: white;
-            padding: 20px;
-            margin-top: 20px;
-            border-radius: 10px;
-            text-align: center;
-            font-size: 0.95rem;
-            direction: ltr;
-        }
-
-        .copyright-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 800px;
-            margin: 0 auto;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .copyright-text {
-            color: #ddd;
-        }
-
-        .designer-credit {
-            background: linear-gradient(45deg, #FFD700, #FFA500);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            font-weight: 700;
-            font-size: 1.1rem;
-            padding: 8px 20px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 215, 0, 0.3);
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .designer-credit::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: 0.5s;
-        }
-
-        .designer-credit:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
-            border-color: #FFD700;
-        }
-
-        .designer-credit:hover::before {
-            left: 100%;
-        }
-
-        .designer-telegram-icon {
-            color: #0088cc;
-            margin-right: 5px;
-            font-size: 1.1rem;
-        }
-
-        .copyright-divider {
-            height: 1px;
-            background: linear-gradient(to right, transparent, var(--gold), transparent);
-            margin: 15px auto;
-            width: 80%;
-        }
-
         /* Responsive Design */
         @media (max-width: 768px) {
             .links-grid {
@@ -329,11 +252,6 @@
             .intro p {
                 font-size: 1.1rem;
             }
-            
-            .copyright-container {
-                flex-direction: column;
-                text-align: center;
-            }
         }
 
         @media (max-width: 480px) {
@@ -347,11 +265,6 @@
             
             .links-grid {
                 grid-template-columns: 1fr;
-            }
-            
-            .copyright-section {
-                padding: 15px 10px;
-                font-size: 0.85rem;
             }
         }
 
@@ -562,20 +475,6 @@
                 </p>
             </div>
         </footer>
-        
-        <!-- قسم حقوق النشر والمصمم -->
-        <div class="copyright-section">
-            <div class="copyright-divider"></div>
-            <div class="copyright-container">
-                <div class="copyright-text">
-                    جميع الحقوق محفوظة © 2025 - قروبات الإمارات التعليمية
-                </div>
-                <a href="https://t.me/vr_1z" target="_blank" class="designer-credit">
-                    <i class="fab fa-telegram designer-telegram-icon"></i>
-                    تصميم <span class="uae-flag">@</span>VR_1z
-                </a>
-            </div>
-        </div>
     </div>
 
     <script>
@@ -594,7 +493,7 @@
                 });
             });
 
-            // إضافة رسالة تأكيد عند النقر على رابط المجموعات
+            // إضافة رسالة تأكيد عند النقر على رابط
             const allLinks = document.querySelectorAll('.grade-link a');
             allLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
@@ -612,26 +511,6 @@
             const flags = document.querySelectorAll('.uae-flag');
             flags.forEach(flag => {
                 flag.style.animationDelay = Math.random() * 2 + 's';
-            });
-
-            // إضافة تأثير عند النقر على رابط المصمم
-            const designerLink = document.querySelector('.designer-credit');
-            designerLink.addEventListener('click', function(e) {
-                if (!confirm('هل تريد الانتقال إلى حساب التلغرام الخاص بالمصمم @VR_1z؟')) {
-                    e.preventDefault();
-                }
-            });
-
-            // إضافة تأثير صوتي صغير عند النقر على رابط المصمم (اختياري)
-            designerLink.addEventListener('click', function() {
-                // يمكن إضافة صوت نقر هنا إذا أردت
-                try {
-                    const clickSound = new Audio('data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEAQB8AAEAfAAABAAgAZGF0YQ');
-                    clickSound.volume = 0.3;
-                    clickSound.play();
-                } catch (e) {
-                    // تجاهل إذا لم يدعم المتصفح
-                }
             });
         });
     </script>
